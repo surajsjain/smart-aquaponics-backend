@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)# -->
+<html class="gr__w3schools_com">
+
+{% load staticfiles %}
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Aquaponics Monitoring</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'dashboard/master.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/w3.css' %}">
+    <!-- <link rel="stylesheet" href="./W3.CSS Template_files/w3.css"> -->
+    <link rel="stylesheet" href="{% static 'dashboard/css' %}">
+    <!-- <link rel="stylesheet" href="./W3.CSS Template_files/css"> -->
+    <link rel="stylesheet" href="{% static 'dashboard/font-awesome.min.css' %}">
+    <!-- <link rel="stylesheet" href="./W3.CSS Template_files/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    {% block cssLinks %}
+    {% endblock %}
+
+    {% block jsLinks %}
+    {% endblock %}
+
+    <!-- <link rel="stylesheet" href="master.css"> -->
+
+    <style>
+        html,
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: "Raleway", sans-serif
+        }
+    </style>
+</head>
+
+<body class="w3-light-grey" data-gr-c-s-loaded="true" onload="startTime()">
+
+    <!-- Top container -->
+    <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+        <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i> &nbsp;Menu</button>
+        <span class="w3-bar-item w3-right">Aquaponics Monitoring</span>
+    </div>
+
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index: 3; width: 300px; display: block;" id="mySidebar"><br>
+        <div class="w3-container w3-row">
+            <div class="w3-col s4">
+                <img src="{% static 'dashboard/avatar2.png' %}" class="w3-circle w3-margin-right" style="width:46px">
+            </div>
+            <div class="w3-col s8 w3-bar">
+                <span>Welcome, <strong>Boss</strong></span><br>
+                <div id="txt"></div>
+
+                <!-- <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
+                <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+                <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a> -->
+            </div>
+        </div>
+        <hr>
+        <div class="w3-container">
+            <h5>Dashboard</h5>
+        </div>
+        <div class="w3-bar-block">
+            <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black navlinks" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp;Close Menu</a>
+            <a href="/dashboard/" class="w3-bar-item w3-button w3-padding w3-blue navlinks"><i class="fa fa-users fa-fw"></i>&nbsp;Home</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding w3-blue navlinks"><i class="fa fa-leaf fa-fw"></i>&nbsp;My Plants</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding w3-blue navlinks"><i class="fa fa-home fa-fw"></i>&nbsp;Greenhouses</a>
+            <!-- <a href="#" class="w3-bar-item w3-button w3-padding w3-blue navlinks"><i class="fa fa-thermometer fa-fw"></i>&nbsp;Temperature Stats</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding w3-blue navlinks"><i class="fa fa-tint fa-fw"></i>&nbsp;Humidity Stats</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding w3-blue navlinks"><i class="fa fa-tree fa-fw"></i>&nbsp;Soil Stats</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding w3-blue navlinks"><i class="fa fa-fish fa-fw"></i>&nbsp;Fish Stats</a> -->
+            <a href="#" class="w3-bar-item w3-button w3-padding w3-blue navlinks"><i class="fa fa-comment fa-fw"></i>&nbsp;Comments</a>
+
+            <!-- <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>&nbsp; Views</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>&nbsp; Traffic</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>&nbsp; Geo</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>&nbsp; Orders</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>&nbsp; News</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>&nbsp; General</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>&nbsp; History</a> -->
+
+
+            <a href="#" class="w3-bar-item w3-button w3-padding" style="list-style-type: none;"><i class="fa fa-sign-out fa-fw"></i>&nbsp; Log Out</a>
+
+            <br><br>
+        </div>
+    </nav>
+
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor: pointer; display: block;" title="close side menu" id="myOverlay"></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+        {% block mainContent %}
+        {% endblock %}
+
+    </div>
+
+    <!-- Scripts -->
+    {% block scriptBlock %}
+    {% endblock %}
+
+
+</body><span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span>
+
+</html>

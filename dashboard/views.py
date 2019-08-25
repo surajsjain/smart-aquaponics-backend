@@ -5,5 +5,6 @@ from django.http import HttpResponseRedirect
 
 def mainBoard(request):
     return render(request, 'dashboard/dashHome.html')
-def welcome(request):
-    return render(request, 'dashboard/welcome.html')
+
+def sysDetails(request):
+    return render(request, 'dashboard/temperaturePage.html')

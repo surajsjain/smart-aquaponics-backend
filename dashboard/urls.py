@@ -6,6 +6,6 @@ from . import views
 app_name = 'dashboard'
 
 urlpatterns = [
-    path('', views.welcome),
-    path('dashboard/', views.mainBoard)
+    path('', views.mainBoard),
+    path('temperature/', views.sysDetails)
 ]

@@ -43,6 +43,8 @@ ALLOWED_HOSTS = ['speeve-ponics.herokuapp.com', '192.168.43.62', '0.0.0.0', '127
 # Application definition
 
 INSTALLED_APPS = [
+    'mainSite.apps.MainsiteConfig',
+    'systems.apps.SystemsConfig',
     'dashboard.apps.DashboardConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -87,23 +89,23 @@ WSGI_APPLICATION = 'SpeevePonics.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'd3e2iiqbn6tqee',
-#         'USER': 'rdqlzvkrbwkxnr',
-#         'PASSWORD': '8f5e3ab77268c8f085673b7e4c71516d4575e0691edb8ebc1199780b2a20ae1f',
-#         'HOST': 'ec2-54-75-245-196.eu-west-1.compute.amazonaws.com',
-#         'PORT': '5432',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd3e2iiqbn6tqee',
+        'USER': 'rdqlzvkrbwkxnr',
+        'PASSWORD': '8f5e3ab77268c8f085673b7e4c71516d4575e0691edb8ebc1199780b2a20ae1f',
+        'HOST': 'ec2-54-75-245-196.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'mydatabase',
+#     }
+# }
 
 
 # Password validation
