@@ -92,10 +92,10 @@ WSGI_APPLICATION = 'SpeevePonics.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd3e2iiqbn6tqee',
-        'USER': 'rdqlzvkrbwkxnr',
-        'PASSWORD': '8f5e3ab77268c8f085673b7e4c71516d4575e0691edb8ebc1199780b2a20ae1f',
-        'HOST': 'ec2-54-75-245-196.eu-west-1.compute.amazonaws.com',
+        'NAME': 'd9kckf28avas5d',
+        'USER': 'ryieqkuiazmeqn',
+        'PASSWORD': 'dc9cacd9a5633a25b05c909f1c2a42bed62b94a9fdb7517caddff1a9ff871154',
+        'HOST': 'ec2-54-195-252-243.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     }
 }
