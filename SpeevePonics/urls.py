@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 import dashboard
 import mainSite
+import systems
 
 urlpatterns = [
     path('', include('mainSite.urls')),
     path('dashboard/', include('dashboard.urls')),
+    path('systems/', include('systems.urls')),
     path('admin/', admin.site.urls),
     # path('dashboard/', include('dashboard.urls'))
 ]
