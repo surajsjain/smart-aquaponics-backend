@@ -43,6 +43,7 @@ ALLOWED_HOSTS = ['speeve-ponics.herokuapp.com', '192.168.43.62', '0.0.0.0', '127
 # Application definition
 
 INSTALLED_APPS = [
+    'conditions.apps.ConditionsConfig',
     'mainSite.apps.MainsiteConfig',
     'systems.apps.SystemsConfig',
     'dashboard.apps.DashboardConfig',
