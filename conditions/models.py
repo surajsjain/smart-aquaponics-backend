@@ -14,12 +14,18 @@ class PlantConditions(models.Model):
 
     diseased = models.BooleanField(default=False)
 
+    def __str__(self):
+        return str(self.timestamp) + ' - ' + self.plant.name
+
 class PondConditions(models.Model):
     timestamp = models.DateTimeField(default = datetime.now())
     pond = models.ForeignKey(Pond, on_delete=models.CASCADE)
 
     level = models.FloatField()
-    purity = models.FloatField(default=True)
+    purity = models.BooleanField(default=True)
+
+    def __str__(self):
+        return str(self.timestamp) + ' - ' + self.pond.name
 
 class Watering(models.Model):
     timestamp = models.DateTimeField(default = datetime.now())
@@ -28,3 +34,6 @@ class Watering(models.Model):
     pond = models.ForeignKey(Pond, on_delete=models.CASCADE)
 
     quantity = models.FloatField()
+
+    def __str__(self):
+        return str(self.timestamp) + ' - ' + self.pond.name + ' - ' + self.plant.name

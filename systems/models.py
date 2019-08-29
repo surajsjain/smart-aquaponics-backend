@@ -14,7 +14,7 @@ class Warehouse(models.Model):
 
 class Pond(models.Model):
     # pondUID = models.CharField(max_length=50)
-    warehouse = models.ForeignKey(Warehouse, on_delete=models.CASCADE)
+    Warehouse = models.ForeignKey(Warehouse, on_delete=models.CASCADE)
     # warehouseUID = warehouse.warehouseUID
     name = models.CharField(max_length=40)
     nFishes = models.IntegerField(default=0)
@@ -30,7 +30,7 @@ class Plant(models.Model):
     pond = models.ForeignKey(Pond, on_delete=models.CASCADE)
     # pondUID = pond.pondUID
     name = models.CharField(max_length=200)
-    type = models.CharField(max_length=200)
+    plantType = models.CharField(max_length=200)
 
     def __str__(self):
-        return (self.Warehouse.name+' - '+self.name)
+        return (self.name+' - '+self.Warehouse.name)
