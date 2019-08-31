@@ -5,4 +5,6 @@ app_name = 'conditions'
 
 urlpatterns = [
     path('plant', views.plant_list),
+    path('pond', views.pond_list),
+    path('watering', views.watering_list)
 ]

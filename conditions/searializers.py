@@ -24,3 +24,17 @@ class PlantConditionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = PlantConditions
         fields = ['timestamp', 'plant', 'temperature', 'humidity', 'soilMoisture', 'diseased']
+
+
+class PondConditionsSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = PondConditions
+        fields = ['timestamp', 'pond', 'level', 'purity']
+
+
+class WateringConditionsSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Watering
+        fields = ['timestamp', 'plant', 'pond', 'quantity']
