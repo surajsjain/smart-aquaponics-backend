@@ -24,5 +24,6 @@ urlpatterns = [
     path('dashboard/', include('dashboard.urls')),
     path('systems/', include('systems.urls')),
     path('admin/', admin.site.urls),
+    path('conditions/', include('conditions.urls'))
     # path('dashboard/', include('dashboard.urls'))
 ]
