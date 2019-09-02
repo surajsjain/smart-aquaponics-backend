@@ -37,3 +37,7 @@ class Watering(models.Model):
 
     def __str__(self):
         return str(self.timestamp) + ' - ' + self.pond.name + ' - ' + self.plant.name
+
+class FishFeeding(models.Model):
+    timestamp = models.DateTimeField(default = datetime.now())
+    pond = models.ForeignKey(Pond, on_delete=models.CASCADE)

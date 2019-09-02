@@ -5,6 +5,8 @@ from rest_framework.response import Response
 
 from .models import *
 from .searializers import *
+from conditions.searializers import *
+from conditions.models import PlantConditions
 
 
 
@@ -91,9 +93,16 @@ def plant_list(request, pid):
         plantPond = Pond.objects.filter(Warehouse = plants.Warehouse)[0]
         data['pond'] = plantPond.name
 
-        conditions = {}
+        condition = PlantConditions.objects.filter(plant = plants)[0]
+        conditionDict = {
+            'timestamp' : condition.timestamp,
+            'temperature' : condition.temperature,
+            'humidity' : condition.humidity,
+            'soilMoisture' : condition.soilMoisture,
+            'diseased' : condition.diseased
+        }
 
-        data['conditions'] = 'available in the next update'
+        data['conditions'] = conditionDict
 
         return Response(data)
 
