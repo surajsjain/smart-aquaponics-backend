@@ -18,6 +18,10 @@ body {
     background-color: lightblue;
 }
 
+.systemsDisplay h6{
+    font-size: 12pt;
+}
+
 .addSystem {
     padding: 20px;
     text-decoration: none;
@@ -33,4 +37,13 @@ body {
     background-color: #337ab7;
     color: white;
     text-decoration: none;
+}
+
+.blockLink{
+    text-decoration: none;
+    color: black;
+}
+.blockLink:hover{
+    text-decoration: none;
+    color: black;
 }

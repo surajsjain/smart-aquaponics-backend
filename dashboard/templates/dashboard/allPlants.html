@@ -1,0 +1,87 @@
+{% extends 'dashboard/dashboardBase.html' %}
+
+{% load staticfiles %}
+
+
+
+{% block mainContent %}
+    <div class="w3-container">
+        <h5>Your Plants</h5>
+        {% for p in plants %}
+
+        <div class="systemsDisplay">
+            <a href="/dashboard/plants/{{ p.id }}/" class="blockLink">
+            <h6>{{ p.name }}</h6>
+            </a>
+        </div>
+
+        {% endfor %}
+
+        <a href="#" class="addSystem">+</a>
+    </div>
+    <hr>
+{% endblock %}
+
+
+{% block scriptBlock %}
+    <script>
+        // Get the Sidebar
+        var mySidebar = document.getElementById("mySidebar");
+        const moistureValueDisp = document.getElementById('sMoistureValue');
+
+        // var i = 0;
+
+        // Get the DIV with overlay effect
+        var overlayBg = document.getElementById("myOverlay");
+
+        // Toggle between showing and hiding the sidebar, and add overlay effect
+        function w3_open() {
+            if (mySidebar.style.display === 'block') {
+                mySidebar.style.display = 'none';
+                overlayBg.style.display = "none";
+            } else {
+                mySidebar.style.display = 'block';
+                overlayBg.style.display = "block";
+            }
+        }
+
+        // Close the sidebar with the close button
+        function w3_close() {
+            mySidebar.style.display = "none";
+            overlayBg.style.display = "none";
+        }
+
+        function getSoilNow() {
+            var moisture = Math.floor((Math.random() * 100) + 1);
+            moistureValueDisp.innerHTML = moisture + "%";
+        }
+
+        function startTime() {
+            // document.getElementById('ftr').innerHTML = "Hello "+i;
+            // i = i + 1;
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('txt').innerHTML =
+                h + ":" + m + ":" + s;
+            // getSoilNow();
+            var t = setTimeout(startTime, 500);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i
+            }; // add zero in front of numbers < 10
+            return i;
+        }
+
+        // var i = 0;
+        //
+        // while(true){
+        //     i = i + 1;
+        // }
+    </script>
+{% endblock %}

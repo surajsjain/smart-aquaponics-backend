@@ -4,7 +4,7 @@
 
 {% block mainContent %}
 <!-- Header -->
-    <header class="w3-container" style="padding-top:22px">
+    <!-- <header class="w3-container" style="padding-top:22px">
         <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
     </header>
 
@@ -40,7 +40,7 @@
             </div>
         </div>
 
-        <!-- NEW -->
+
         <div class="w3-quarter">
 
             <div class="w3-container w3-brown w3-text-white w3-padding-16">
@@ -55,13 +55,35 @@
         </div>
     </div>
 
+    <hr> -->
+
+    <div class="w3-container">
+        <h3>Your Greenhouses</h3>
+        {% for w in warehouses %}
+
+        <div class="systemsDisplay">
+            <a href="/dashboard/greenshouses/{{ w.id }}/" class="blockLink">
+            <h6>{{ w.name }}</h6>
+            </a>
+        </div>
+
+        {% endfor %}
+
+        <a href="#" class="addSystem">+</a>
+    </div>
     <hr>
 
     <div class="w3-container">
-        <h5>Greenhouses</h5>
+        <h3>Your Plants</h3>
+        {% for p in plants %}
+
         <div class="systemsDisplay">
-            <h6>Greenhouse 1</h6>
+            <a href="/dashboard/plants/{{ p.id }}/" class="blockLink">
+            <h6>{{ p.name }}</h6>
+            </a>
         </div>
+
+        {% endfor %}
 
         <a href="#" class="addSystem">+</a>
     </div>

@@ -7,5 +7,9 @@ app_name = 'dashboard'
 
 urlpatterns = [
     path('', views.mainBoard),
-    path('temperature/', views.sysDetails)
+    path('greenshouses/', views.warehouseDisplay),
+    path('greenshouses/<int:wnum>/', views.warehouseSpecificDisplay),
+    # path('temperature/', views.sysDetails),
+    path('plants/', views.allPlants),
+    path('plants/<int:pid>/', views.plantDetails)
 ]
