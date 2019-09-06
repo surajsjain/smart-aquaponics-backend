@@ -18,6 +18,7 @@ def mainBoard(request):
 
 def plantDetails(request, pid):
     plant = Plant.objects.filter(id = pid)
+    plant = plant[0]
     ctxt = {
         'plant' : plant
     }

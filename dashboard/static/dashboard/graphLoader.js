@@ -24,6 +24,9 @@ function w3_close() {
     overlayBg.style.display = "none";
 }
 
+
+/// Our stuff starts here
+
 function getSoilNow() {
     var moisture = Math.floor((Math.random() * 100) + 1);
     moistureValueDisp.innerHTML = moisture + "%";
@@ -55,8 +58,15 @@ function checkTime(i) {
 // console.log("Script is loaded successfully");
 r = [];
 i = 0;
-console.log("Graph Script has been loaded");
+console.log("Graph Script 1 has been loaded");
 // updateChart();
+// google.charts.load('current', {
+//     'packages': ['line']
+// });
+var t1 = mainFun2();
+google.charts.load('current', {
+    'packages': ['line']
+});
 
 function getRows() {
     var gog = (Math.random() * 100) + 1;
@@ -68,11 +78,6 @@ function getRows() {
 
     return r;
 }
-
-google.charts.load('current', {
-    'packages': ['line']
-});
-google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
 
@@ -118,14 +123,22 @@ function drawChart() {
 
     chart.draw(data, google.charts.Line.convertOptions(options));
 
-    setTimeout(drawChart, 10000);
+    // var l1 = mainFun();
+    // var l2 = mainFun2();
+
+    console.log('Graph Drawn')
 
 }
 
-function mainFun(plantID){
-    console.log('Plant that you\'ve requested is '+plantID);
-}
+// function mainFun(){
+//     console.log('Plant that you\'ve requested is '+1);
+//     setTimeout(mainFun, 500);
+// }
 
 function mainFun2(){
     console.log('Howdy!');
+    var t1 = drawChart();
+    console.log('Drawing Graph...')
+    setTimeout(mainFun2, 300);
+    // drawChart();
 }
