@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, View
 from django.http import HttpResponseRedirect
 from systems.models import *
+from conditions.models import *
 # Create your views here.
 
 def mainBoard(request):
@@ -17,10 +18,19 @@ def mainBoard(request):
 #     return render(request, 'dashboard/temperaturePage.html')
 
 def plantDetails(request, pid):
-    plant = Plant.objects.filter(id = pid)
-    plant = plant[0]
+    plnt = Plant.objects.filter(id = pid)
+    plnt = plnt[0]
+    plntConditions = PlantConditions.objects.filter(plant=plnt)
+    pondConditions = PondConditions.objects.all()
+    watering = Watering.objects.all()
+    fishFeeding = FishFeeding.objects.all()
+
     ctxt = {
-        'plant' : plant
+        'plant' : plnt,
+        'plntConditions' : plntConditions,
+        'pondConditions' : pondConditions,
+        'watering' : watering,
+        'fishFeeding' : fishFeeding
     }
     return render(request, 'dashboard/plantDetPage.html', context=ctxt)
 

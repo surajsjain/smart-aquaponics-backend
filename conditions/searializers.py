@@ -57,4 +57,4 @@ class ActuatorOverrideSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ActuatorOverride
-        fields = ['plant', 'water', 'light']
+        fields = ['plant', 'manual', 'water', 'light']

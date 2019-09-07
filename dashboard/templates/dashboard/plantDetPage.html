@@ -74,6 +74,12 @@
 <hr>
 
 <div class="w3-container">
+    <h3>Enable Automatic/Manual Controls</h3>
+    <button type="button" class="control-button-green" onclick="actuate('manual', false)">Automatic</button>
+    <button type="button" class="control-button-red" onclick="actuate('manual', true)">Manual</button>
+</div>
+
+<div class="w3-container">
     <h3>Light Controls</h3>
     <button type="button" class="control-button-green" onclick="actuate('light', true)">Light On</button>
     <button type="button" class="control-button-red" onclick="actuate('light', false)">Light Off</button>
@@ -86,8 +92,101 @@
 </div>
 
 
-<div class="" onload="">
+<div class="w3-container">
+    <h2>Data</h2>
+    <br>
+    <h4>Plant Conditions</h4>
+    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+        <tr>
+            <th>Timestamp</th>
+            <th>Temperature</th>
+            <th>Humidity</th>
+            <th>Soil Moisture</th>
+            <th>Diseased</th>
+        </tr>
+        {% for pc in plntConditions %}
+
+            <tr>
+                <td>{{ pc.timestamp }}</td>
+                <td>{{ pc.temperature }}</td>
+                <td>{{ pc.humidity }}</td>
+                <td>{{ pc.soilMoisture }}</td>
+                <td>{{ pc.diseased }}</td>
+            </tr>
+
+        {% endfor %}
+    </table>
+
+    <br>
+    <h4>Pond Conditions</h4>
+    <table class="w3-table w3-striped w3-bordered w3-border w3-white">
+        <tr>
+            <th>Timestamp</th>
+            <th>Level</th>
+            <!-- <th>Humidity</th>
+            <th>Soil Moisture</th>
+            <th>Diseased</th> -->
+        </tr>
+        {% for pc in pondConditions %}
+
+            <tr>
+                <td>{{ pc.timestamp }}</td>
+                <td>{{ pc.level }}</td>
+                <!-- <td>{{ pc.humidity }}</td>
+                <td>{{ pc.soilMoisture }}</td>
+                <td>{{ pc.diseased }}</td> -->
+            </tr>
+
+        {% endfor %}
+    </table>
+
+    <br>
+    <h4>Watering</h4>
+    <table class="w3-table w3-striped w3-bordered w3-border w3-white">
+        <tr>
+            <th>Timestamp</th>
+            <th>pond</th>
+            <!-- <th>Humidity</th>
+            <th>Soil Moisture</th>
+            <th>Diseased</th> -->
+        </tr>
+        {% for w in watering %}
+
+            <tr>
+                <td>{{ w.timestamp }}</td>
+                <td>{{ w.pond.name }}</td>
+                <!-- <td>{{ pc.humidity }}</td>
+                <td>{{ pc.soilMoisture }}</td>
+                <td>{{ pc.diseased }}</td> -->
+            </tr>
+
+        {% endfor %}
+    </table>
+
+    <br>
+    <h4>Fish Feeding</h4>
+    <table class="w3-table w3-striped w3-bordered w3-border w3-white">
+        <tr>
+            <th>Timestamp</th>
+            <th>pond</th>
+            <!-- <th>Humidity</th>
+            <th>Soil Moisture</th>
+            <th>Diseased</th> -->
+        </tr>
+        {% for f in fishFeeding %}
+
+            <tr>
+                <td>{{ f.timestamp }}</td>
+                <td>{{ f.pond.name }}</td>
+                <!-- <td>{{ pc.humidity }}</td>
+                <td>{{ pc.soilMoisture }}</td>
+                <td>{{ pc.diseased }}</td> -->
+            </tr>
+
+        {% endfor %}
+    </table>
 </div>
+<hr>
 
 <div class="w3-container">
     <h5>Recent Comments</h5>

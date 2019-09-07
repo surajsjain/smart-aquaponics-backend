@@ -132,10 +132,15 @@ def actuate(request, pid):
         type = data["modType"]
 
         if(type == "water"):
+            ob.manual = True
             ob.water = data["value"]
 
         elif(type == "light"):
+            ob.manual = True
             ob.light = data["value"]
+
+        elif(type == 'manual'):
+            ob.manual = data['value']
         # ob.soilMoisture = data["soilMoisture"]
         # ob.diseased = data["diseased"]
 

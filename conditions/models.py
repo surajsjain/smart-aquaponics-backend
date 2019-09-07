@@ -59,6 +59,8 @@ class InFocus(models.Model):
 
 class ActuatorOverride(models.Model):
     plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
+
+    manual = models.BooleanField(default=False)
     water = models.BooleanField(default=False)
     light = models.BooleanField(default=False)
 

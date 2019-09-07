@@ -68,6 +68,12 @@ google.charts.load('current', {
 });
 google.charts.setOnLoadCallback(mainFun);
 
+function sleep(miliseconds) {
+   var currentTime = new Date().getTime();
+
+   while (currentTime + miliseconds >= new Date().getTime()) {
+   }
+}
 
 function getRows() {
     var gog = (Math.random() * 100) + 1;
@@ -409,7 +415,7 @@ function runFunc() {
         console.log('Graph drawn at ' + (new Date()));
         drawGraphs();
 
-        setTimeout(runFunc, 62000);
+        sleep(65000)
     }
 
     setTimeout(runFunc, 300);
