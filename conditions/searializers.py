@@ -37,7 +37,7 @@ class WateringConditionsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Watering
-        fields = ['timestamp', 'plant', 'pond', 'quantity']
+        fields = ['timestamp', 'plant', 'pond', 'motor']
 
 class FishFeedingSerializer(serializers.ModelSerializer):
 

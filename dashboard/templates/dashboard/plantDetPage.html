@@ -146,6 +146,7 @@
         <tr>
             <th>Timestamp</th>
             <th>pond</th>
+            <th>Motor</th>
             <!-- <th>Humidity</th>
             <th>Soil Moisture</th>
             <th>Diseased</th> -->
@@ -155,6 +156,12 @@
             <tr>
                 <td>{{ w.timestamp }}</td>
                 <td>{{ w.pond.name }}</td>
+
+                {% if w.motor is False %}
+                <td>Off</td>
+                {% else %}
+                <td>On</td>
+                {% endif %}
                 <!-- <td>{{ pc.humidity }}</td>
                 <td>{{ pc.soilMoisture }}</td>
                 <td>{{ pc.diseased }}</td> -->

@@ -33,7 +33,8 @@ class Watering(models.Model):
     plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
     pond = models.ForeignKey(Pond, on_delete=models.CASCADE)
 
-    quantity = models.FloatField()
+    # quantity = models.FloatField()
+    motor = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.timestamp) + ' - ' + self.pond.name + ' - ' + self.plant.name
