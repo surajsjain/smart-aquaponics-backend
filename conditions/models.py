@@ -41,3 +41,26 @@ class Watering(models.Model):
 class FishFeeding(models.Model):
     timestamp = models.DateTimeField(default = datetime.now())
     pond = models.ForeignKey(Pond, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.timestamp) + ' - ' + self.pond.name
+
+class InFocus(models.Model):
+    plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
+
+    temperature = models.FloatField()
+    humidity = models.FloatField()
+    soilMoisture = models.FloatField()
+
+    diseased = models.BooleanField(default=False)
+
+    def __str__(self):
+        return str(self.plant.name)
+
+class ActuatorOverride(models.Model):
+    plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
+    water = models.BooleanField(default=False)
+    light = models.BooleanField(default=False)
+
+    def __str__(self):
+        return str(self.plant.name)

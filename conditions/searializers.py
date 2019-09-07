@@ -38,3 +38,23 @@ class WateringConditionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Watering
         fields = ['timestamp', 'plant', 'pond', 'quantity']
+
+class FishFeedingSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = FishFeeding
+        fields = ['timestamp', 'pond']
+
+class InFocusSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = InFocus
+        fields = ['plant', 'temperature', 'humidity', 'soilMoisture', 'diseased']
+        # fields = '__all__'##['plant', 'temperature', 'humidity', 'soilMoisture', 'diseased']
+
+
+class ActuatorOverrideSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = ActuatorOverride
+        fields = ['plant', 'water', 'light']

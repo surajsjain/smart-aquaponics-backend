@@ -47,3 +47,23 @@ body {
     text-decoration: none;
     color: black;
 }
+
+.control-button-green{
+    background-color: #00ad00;
+    color: white;
+    border: 0px;
+    margin: 0.5%;
+    padding: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.control-button-red{
+    background-color: red;
+    color: white;
+    border: 0px;
+    margin: 0.5%;
+    padding: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+}

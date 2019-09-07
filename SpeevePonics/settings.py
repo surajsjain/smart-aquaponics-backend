@@ -27,7 +27,7 @@ SECRET_KEY = '013h_jxkv0e_b*jmlx6pk6d6*u@(1uao48!n0$lg%3#@g56!^*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['speeve-ponics.herokuapp.com', '192.168.43.62', '0.0.0.0', '127.0.0.1']
+ALLOWED_HOSTS = ['speeve-ponics.herokuapp.com', '192.168.43.62', '0.0.0.0', '127.0.0.1', 'http://127.0.0.1:8000', 'localhost']
 # ALLOWED_HOSTS = []
 # networks = subprocess.check_output(['ifconfig']).split('\n\n')
 #
@@ -91,23 +91,23 @@ WSGI_APPLICATION = 'SpeevePonics.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'daehe2ju44442a',
-        'USER': 'yiqemnzpaxaecg',
-        'PASSWORD': '6d75a62e18ad90755e3e2b76737e87d4fa70b418f94620d3900aaeae79f315e6',
-        'HOST': 'ec2-54-228-243-238.eu-west-1.compute.amazonaws.com',
-        'PORT': '5432',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': 'mydatabase',
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'daehe2ju44442a',
+#         'USER': 'yiqemnzpaxaecg',
+#         'PASSWORD': '6d75a62e18ad90755e3e2b76737e87d4fa70b418f94620d3900aaeae79f315e6',
+#         'HOST': 'ec2-54-228-243-238.eu-west-1.compute.amazonaws.com',
+#         'PORT': '5432',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
+    }
+}
 
 
 # Password validation

@@ -19,17 +19,17 @@
         <div class="w3-container w3-green w3-text-white w3-padding-16">
             <div class="w3-left"><i class="fa fa-leaf w3-xxxlarge"></i></div>
             <div class="w3-right">
-                <h3>1</h3>
+                <h3 id = "diseaseVal" >No</h3>
             </div>
             <div class="w3-clear"></div>
-            <h4>Plants</h4>
+            <h4>Diseased</h4>
         </div>
     </div>
     <div class="w3-quarter">
         <div class="w3-container w3-red w3-text-white w3-padding-16">
             <div class="w3-left"><i class="fa fa-thermometer w3-xxxlarge"></i></div>
             <div class="w3-right">
-                <h3>25°C</h3>
+                <h3 id = "temperatureVal" >25°C</h3>
             </div>
             <div class="w3-clear"></div>
             <h4>Temperature</h4>
@@ -39,7 +39,7 @@
         <div class="w3-container w3-blue w3-text-white w3-padding-16">
             <div class="w3-left"><i class="fa fa-tint w3-xxxlarge"></i></div>
             <div class="w3-right">
-                <h3>70%</h3>
+                <h3 id = "humidityVal" >70%</h3>
             </div>
             <div class="w3-clear"></div>
             <h4>Humidity</h4>
@@ -72,6 +72,19 @@
 
 </div>
 <hr>
+
+<div class="w3-container">
+    <h3>Light Controls</h3>
+    <button type="button" class="control-button-green" onclick="actuate('light', true)">Light On</button>
+    <button type="button" class="control-button-red" onclick="actuate('light', false)">Light Off</button>
+</div>
+
+<div class="w3-container">
+    <h3>Water Controls</h3>
+    <button type="button" class="control-button-green" onclick="actuate('water', true)">Water On</button>
+    <button type="button" class="control-button-red" onclick="actuate('water', false)">Water Off</button>
+</div>
+
 
 <div class="" onload="">
 </div>

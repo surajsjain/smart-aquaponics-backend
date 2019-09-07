@@ -5,3 +5,6 @@ from . models import *
 admin.site.register(PlantConditions)
 admin.site.register(PondConditions)
 admin.site.register(Watering)
+admin.site.register(FishFeeding)
+admin.site.register(InFocus)
+admin.site.register(ActuatorOverride)
