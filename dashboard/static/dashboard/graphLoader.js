@@ -339,70 +339,83 @@ function updateBlocks() {
     // console.log('sVal');
 
     let url = '/conditions/infocus/1';
-    var request = new XMLHttpRequest();
 
-    var data
+    try {
+        var request = new XMLHttpRequest();
+
+        var data
 
 
-    request.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            // var jsonObj = JSON.parse(request.responseText);
-            var jsonObj = JSON.parse(request.responseText);
+        request.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // var jsonObj = JSON.parse(request.responseText);
+                var jsonObj = JSON.parse(request.responseText);
 
-            tVal.innerHTML = jsonObj["temperature"] + "°C";
-            hVal.innerHTML = jsonObj["humidity"] + "%";
-            sVal.innerHTML = jsonObj["soilMoisture"] + "%";
+                tVal.innerHTML = jsonObj["temperature"] + "°C";
+                hVal.innerHTML = jsonObj["humidity"] + "%";
+                sVal.innerHTML = jsonObj["soilMoisture"] + "%";
 
-            if (!(jsonObj["diseased"])) {
-                disVal.innerHTML = "No";
-            } else {
-                disVal.innerHTML = "Yes";
+                if (!(jsonObj["diseased"])) {
+                    disVal.innerHTML = "No";
+                } else {
+                    disVal.innerHTML = "Yes";
+                }
+
+
+                // data = jsonObj;
+
+                // makeDataForTempGraph(data);
+                // makeDataForHumGraph(data);
+                // updatePlantStats(jsonObj);
+                // console.log(jsonObj);
+
+                // console.log('In inner function: '+data);
             }
+        };
 
-
-            // data = jsonObj;
-
-            // makeDataForTempGraph(data);
-            // makeDataForHumGraph(data);
-            // updatePlantStats(jsonObj);
-            // console.log(jsonObj);
-
-            // console.log('In inner function: '+data);
-        }
-    };
-
-    request.open("GET", url, true);
-    request.send();
+        request.open("GET", url, true);
+        request.send();
 
     // console.log('In Outer function: '+data);
 
     // return request.data;
+
+    } catch (e) {
+        console.error("Update blocks failed")
+    }
+
 }
 
 function actuate(component, act) {
 
-    console.log(component + " " + act);
-    var dat = {
-        "modType": component,
-        "value": act
-    };
-    var dat = JSON.stringify(dat);
+    try
+    {
+        var dat = {
+            "modType": component,
+            "value": act
+        };
+        var dat = JSON.stringify(dat);
 
-    // console.log(dat);
+        // console.log(dat);
 
-    var url = "/conditions/actuate/1";
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            var json = JSON.parse(xhr.responseText);
-            // console.log("POST successful");
-        }
-    };
+        var url = "/conditions/actuate/1";
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var json = JSON.parse(xhr.responseText);
+                // console.log("POST successful");
+            }
+        };
 
-    xhr.send(dat);
+        xhr.send(dat);
+        console.log(component + " " + act);
 
+    }
+    catch (e) {
+        console.error("Actuate Failed");
+    }
 }
 
 function runFunc() {
